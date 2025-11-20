@@ -1,0 +1,22 @@
+[
+  {"name":"Taladro Percutor 700W","category":"Herramientas","price":249.9,"color":null,"dimensions":"700W","stock":35,"tags":["taladro","percutor","electrico"],"meta":{"slug":"taladro-percutor-700w","image":"/imgs/taladro1.jpg"}},
+  {"name":"Juego de Destornilladores 6 Piezas","category":"Herramientas","price":34.9,"color":null,"dimensions":"6 piezas","stock":80,"tags":["destornillador","set","herramienta"],"meta":{"slug":"destornilladores-6-pzas","image":"/imgs/destornilladores.jpg"}},
+  {"name":"Caja de Herramientas 19 pulgadas","category":"Herramientas","price":59.9,"color":null,"dimensions":"19in","stock":50,"tags":["caja","organizador"],"meta":{"slug":"caja-herramientas-19","image":"/imgs/caja19.jpg"}},
+  {"name":"Lámpara LED 15W Luz Blanca","category":"Iluminación","price":8.5,"color":"blanco","dimensions":"15W","stock":200,"tags":["led","bombilla"],"meta":{"slug":"lampara-led-15w","image":"/imgs/led15w.jpg"}},
+  {"name":"Extensión Eléctrica 5 metros","category":"Electricidad","price":19.9,"color":null,"dimensions":"5m","stock":60,"tags":["extension","electricidad"],"meta":{"slug":"extension-5m","image":"/imgs/extension5m.jpg"}},
+  {"name":"Pintura Látex Blanco 1 Galón","category":"Pinturas","price":54.9,"color":"blanco","dimensions":"1 galón","stock":40,"tags":["pintura","latex","interiores"],"meta":{"slug":"pintura-blanca-1gal","image":"/imgs/pintura-blanco.jpg","coverage_m2_per_liter":12}},
+  {"name":"Brocha de 2 pulgadas","category":"Pinturas","price":7.5,"color":null,"dimensions":"2in","stock":150,"tags":["brocha","pintura"],"meta":{"slug":"brocha-2p","image":"/imgs/brocha2.jpg"}},
+  {"name":"Llave Stilson 14 pulgadas","category":"Plomería","price":45.0,"color":null,"dimensions":"14in","stock":25,"tags":["stilson","plomeria"],"meta":{"slug":"llave-stilson-14","image":"/imgs/stilson14.jpg"}},
+  {"name":"Cinta Selladora PTFE","category":"Plomería","price":3.9,"color":null,"dimensions":"12mm x 12m","stock":300,"tags":["ptfe","sellador"],"meta":{"slug":"cinta-ptfe","image":"/imgs/cinta-ptfe.jpg"}},
+  {"name":"Martillo Carpintero 16oz","category":"Herramientas","price":22.9,"color":null,"dimensions":"16oz","stock":70,"tags":["martillo","carpinteria"],"meta":{"slug":"martillo-16oz","image":"/imgs/martillo16.jpg"}},
+  {"name":"Escalera de Aluminio 5 Peldaños","category":"Hogar","price":129.9,"color":null,"dimensions":"5 peldaños","stock":18,"tags":["escalera","seguridad"],"meta":{"slug":"escalera-5p","image":"/imgs/escalera5.jpg"}},
+  {"name":"Alicate Universal 8 pulgadas","category":"Herramientas","price":28.5,"color":null,"dimensions":"8in","stock":95,"tags":["alicate","corte"],"meta":{"slug":"alicate-8","image":"/imgs/alicate8.jpg"}},
+  {"name":"Cerradura de Seguridad","category":"Seguridad","price":74.9,"color":null,"dimensions":"estandar","stock":40,"tags":["cerradura","seguridad"],"meta":{"slug":"cerradura-seguridad","image":"/imgs/cerradura.jpg"}},
+  {"name":"Guantes Antideslizantes","category":"Seguridad","price":9.9,"color":null,"dimensions":"talla-unica","stock":140,"tags":["guantes","proteccion"],"meta":{"slug":"guantes-antidesliz","image":"/imgs/guantes.jpg"}},
+  {"name":"Silla de Jardín Plegable","category":"Jardinería","price":39.9,"color":null,"dimensions":"plegable","stock":50,"tags":["jardin","muebles"],"meta":{"slug":"silla-jardin","image":"/imgs/silla-jardin.jpg"}},
+  {"name":"Tijera para Podar","category":"Jardinería","price":25.5,"color":null,"dimensions":"estandar","stock":60,"tags":["podar","jardin"],"meta":{"slug":"tijera-podar","image":"/imgs/podar.jpg"}},
+  {"name":"Manguera 15 metros","category":"Jardinería","price":32.9,"color":null,"dimensions":"15m","stock":80,"tags":["manguera","riego"],"meta":{"slug":"manguera-15m","image":"/imgs/manguera15.jpg"}},
+  {"name":"Ventilador de Pedestal 18 pulgadas","category":"Climatización","price":119.9,"color":null,"dimensions":"18in","stock":20,"tags":["ventilador","clima"],"meta":{"slug":"ventilador-18","image":"/imgs/ventilador.jpg"}},
+  {"name":"Corta Césped Eléctrico 1200W","category":"Jardinería","price":399.0,"color":null,"dimensions":"1200W","stock":10,"tags":["cortacesped"],"meta":{"slug":"corta-cesped-1200w","image":"/imgs/cesped.jpg"}},
+  {"name":"Lámpara de Mesa LED","category":"Iluminación","price":49.9,"color":null,"dimensions":"ajustable","stock":85,"tags":["lampara","mesa"],"meta":{"slug":"lampara-mesa-led","image":"/imgs/lampara-mesa.jpg"}}
+]

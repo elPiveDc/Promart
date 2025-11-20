@@ -1,0 +1,130 @@
+use promart;
+
+const products = db.products.insertMany([
+  { name: "Pintura Blanca 1L", category: "pintura", price: 25, color: "blanco", tags: ["pintura", "pared"] },
+  { name: "Pintura Látex Premium 4L", category: "pintura", price: 89, color: "marfil", tags: ["pintura"] },
+  { name: "Rodillo Profesional", category: "herramientas", price: 18, tags: ["pintura", "herramientas"] },
+  { name: "Brocha Angular 2\"", category: "herramientas", price: 9, tags: ["pintura"] },
+  { name: "Cemento 42.5kg", category: "piso", price: 32, tags: ["piso", "material"] },
+  { name: "Cerámico Beige 60x60", category: "piso", price: 12, dimensions: "60x60", tags: ["piso"] },
+  { name: "Fragua Blanca 1kg", category: "piso", price: 7, tags: ["piso"] },
+  { name: "Taladro Percutor 700W", category: "herramientas", price: 249, tags: ["herramientas", "eléctrico"] },
+  { name: "Cinta Métrica 5m", category: "herramientas", price: 15, tags: ["medición", "herramientas"] },
+  { name: "Tornillos Madera 100u", category: "ferretería", price: 8, tags: ["madera"] },
+  { name: "Lija Grano 120", category: "herramientas", price: 3, tags: ["acabado"] },
+  { name: "Perfil Drywall 3m", category: "drywall", price: 21, tags: ["drywall"] },
+  { name: "Placa Drywall 1.22x2.44", category: "drywall", price: 48, tags: ["drywall"] },
+  { name: "Silicona Transparente", category: "pegamentos", price: 12, tags: ["sellado"] },
+  { name: "Piso Laminado Roble", category: "piso", price: 56, tags: ["piso"] },
+  { name: "Enchape Madera Oscura", category: "acabados", price: 38, tags: ["madera"] },
+  { name: "Masilla para Juntas 1kg", category: "drywall", price: 14, tags: ["drywall"] },
+  { name: "Pintura Antihumedad 1L", category: "pintura", price: 32, tags: ["pared", "humedad"] },
+  { name: "Guantes de Seguridad", category: "seguridad", price: 11, tags: ["seguridad"] },
+  { name: "Casco de Construcción", category: "seguridad", price: 35, tags: ["seguridad"] }
+]);
+
+print("Productos insertados:");
+printjson(products);
+
+
+const p = db.products.find().toArray();
+
+
+db.profiles.insertMany([
+  {
+    slug: "remodelar-cocina",
+    name: "Remodelación de Cocina",
+    description: "Paquete base para renovar una cocina estándar.",
+    tags: ["cocina", "remodelacion"],
+    requiredCategories: ["pintura", "piso", "herramientas"],
+    baseProducts: [p[0]._id, p[1]._id, p[2]._id],
+    quantityRules: [
+      { category: "pintura", defaults: { litros: 4 } },
+      { category: "piso", defaults: { m2: 20 } }
+    ],
+    optionalFilters: [
+      { key: "color", type: "select", options: ["blanco", "marfil"] }
+    ],
+    region: "Lima",
+    version: "1.0"
+  },
+  {
+    slug: "remodelar-bano",
+    name: "Remodelación de Baño",
+    description: "Materiales esenciales para renovar un baño mediano.",
+    tags: ["baño", "remodelacion"],
+    requiredCategories: ["piso", "acabados"],
+    baseProducts: [p[5]._id, p[14]._id],
+    quantityRules: [{ category: "piso", defaults: { m2: 12 } }],
+    region: "Arequipa",
+    version: "1.0"
+  },
+  {
+    slug: "pintar-depa",
+    name: "Pintar Departamento Completo",
+    tags: ["pintura"],
+    requiredCategories: ["pintura"],
+    baseProducts: [p[0]._id, p[1]._id, p[17]._id],
+    quantityRules: [{ category: "pintura", defaults: { litros: 20 } }],
+    version: "1.0"
+  },
+  {
+    slug: "instalar-drywall",
+    name: "Instalación de Drywall",
+    tags: ["drywall"],
+    requiredCategories: ["drywall", "herramientas"],
+    baseProducts: [p[11]._id, p[12]._id, p[16]._id],
+    quantityRules: [{ category: "drywall", defaults: { paneles: 6 } }],
+    version: "1.0"
+  },
+  {
+    slug: "seguridad-obra",
+    name: "Kit de Seguridad para Obra",
+    tags: ["seguridad"],
+    requiredCategories: ["seguridad"],
+    baseProducts: [p[18]._id, p[19]._id],
+    version: "1.0"
+  },
+  {
+    slug: "acabado-madera",
+    name: "Acabado en Madera",
+    tags: ["madera", "acabados"],
+    requiredCategories: ["herramientas", "acabados"],
+    baseProducts: [p[9]._id, p[15]._id],
+    version: "1.0"
+  },
+  {
+    slug: "renovar-pisos",
+    name: "Renovación de Pisos",
+    tags: ["piso"],
+    requiredCategories: ["piso"],
+    baseProducts: [p[5]._id, p[6]._id, p[14]._id],
+    version: "1.0"
+  },
+  {
+    slug: "pintar-habitacion",
+    name: "Pintar Habitación",
+    tags: ["pintura"],
+    requiredCategories: ["pintura"],
+    baseProducts: [p[0]._id, p[3]._id],
+    version: "1.0"
+  },
+  {
+    slug: "kit-herramientas-basico",
+    name: "Kit Básico de Herramientas",
+    tags: ["herramientas"],
+    requiredCategories: ["herramientas"],
+    baseProducts: [p[2]._id, p[3]._id, p[8]._id],
+    version: "1.0"
+  },
+  {
+    slug: "impermeabilizacion",
+    name: "Impermeabilización de Paredes",
+    tags: ["humedad"],
+    requiredCategories: ["pintura"],
+    baseProducts: [p[17]._id],
+    version: "1.0"
+  }
+]);
+
+print("Perfiles insertados correctamente.");

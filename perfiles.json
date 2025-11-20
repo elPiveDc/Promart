@@ -1,0 +1,91 @@
+[
+  {
+    "slug":"remodelar-cocina",
+    "name":"Remodelar Cocina",
+    "description":"Perfil para renovar cocina: paredes, piso, iluminación y pequeños muebles.",
+    "tags":["cocina","remodelacion"],
+    "requiredCategories":["Pinturas","Piso","Iluminación","Herramientas"],
+    "baseProducts": [],
+    "quantityRules":[{"category":"Pinturas","calculation":"area_m2/coverage_m2_per_liter","defaults":{"coverage_m2_per_liter":12}},{"category":"Piso","calculation":"area_m2*(1+wastePercent)","defaults":{"wastePercent":0.1}}],
+    "optionalFilters":[{"key":"color","type":"select","options":["blanco","gris","beige"]},{"key":"maxBudget","type":"number"}],
+    "priority":{"mustHave":["Piso","Pinturas"],"niceToHave":["Decoración"]}
+  },
+  {
+    "slug":"remodelar-baño",
+    "name":"Remodelar Baño",
+    "description":"Perfil para reforma de baño (azulejos, sanitarios, grifería).",
+    "tags":["baño","remodelacion"],
+    "requiredCategories":["Piso","Plomería","Iluminación"],
+    "baseProducts": [],
+    "quantityRules":[{"category":"Piso","calculation":"area_m2*(1+wastePercent)","defaults":{"wastePercent":0.08}}],
+    "optionalFilters":[{"key":"style","type":"select","options":["moderno","clasico"]}]
+  },
+  {
+    "slug":"reparaciones-generales",
+    "name":"Reparaciones Generales",
+    "description":"Kit básico para arreglos del hogar: herramientas variadas.",
+    "tags":["hogar","reparaciones"],
+    "requiredCategories":["Herramientas","Seguridad"],
+    "baseProducts": [],
+    "optionalFilters":[{"key":"urgency","type":"select","options":["baja","media","alta"]}]
+  },
+  {
+    "slug":"instalacion-electrica",
+    "name":"Instalación Eléctrica",
+    "description":"Productos para trabajos eléctricos: cables, tomas, protecciones.",
+    "tags":["electricidad","instalacion"],
+    "requiredCategories":["Electricidad","Herramientas"],
+    "baseProducts": [],
+    "optionalFilters":[{"key":"safety","type":"select","options":["normal","industrial"]}]
+  },
+  {
+    "slug":"proyecto-jardin",
+    "name":"Proyecto Jardín",
+    "description":"Materiales para crear o mejorar un jardín.",
+    "tags":["jardin","paisajismo"],
+    "requiredCategories":["Jardinería","Hogar"],
+    "baseProducts": [],
+    "optionalFilters":[{"key":"plantType","type":"select","options":["cesped","arbustos","flores"]}]
+  },
+  {
+    "slug":"instalacion-iluminacion",
+    "name":"Instalación Iluminación",
+    "description":"Bombillas, lámparas y accesorios para iluminación interior/exterior.",
+    "tags":["iluminacion","electricidad"],
+    "requiredCategories":["Iluminación","Electricidad"],
+    "baseProducts": []
+  },
+  {
+    "slug":"mantenimiento-plomeria",
+    "name":"Mantenimiento Plomería",
+    "description":"Repuestos y herramientas para arreglos rápidos de plomería.",
+    "tags":["plomeria","mantenimiento"],
+    "requiredCategories":["Plomería","Herramientas"],
+    "baseProducts": []
+  },
+  {
+    "slug":"instalacion-piso",
+    "name":"Instalación de Piso",
+    "description":"Productos necesarios para colocar pisos y revestimientos.",
+    "tags":["piso","construccion"],
+    "requiredCategories":["Piso","Herramientas"],
+    "baseProducts": [],
+    "quantityRules":[{"category":"Piso","calculation":"area_m2*(1+wastePercent)","defaults":{"wastePercent":0.12}}]
+  },
+  {
+    "slug":"decoracion-interior",
+    "name":"Decoración Interior",
+    "description":"Accesorios y elementos decorativos para interiores.",
+    "tags":["decoracion","interior"],
+    "requiredCategories":["Iluminación","Hogar"],
+    "baseProducts": []
+  },
+  {
+    "slug":"kit-emergencia-hogar",
+    "name":"Kit Emergencia Hogar",
+    "description":"Elementos básicos para emergencias y pequeñas reparaciones.",
+    "tags":["emergencia","seguridad"],
+    "requiredCategories":["Seguridad","Herramientas"],
+    "baseProducts": []
+  }
+]
