@@ -1,4 +1,4 @@
-import { api } from '../utils/api';
+import { api } from './api';
 import type { Profile } from '../types/Profile';
 import type { SmartListResponse } from '../types/Response';
 
@@ -19,7 +19,7 @@ export const profileService = {
     // El backend debe devolver un array de Productos o CartItems
     generateSmartList: async (slug: string, filters: Record<string, string>): Promise<SmartListResponse> => {
         try {
-            const response = await api.post(`/cart/generate-list-by-profile`, {
+            const response = await api.post(`/carts/`, {
                 profileSlug: slug,
                 filters: filters,
             });

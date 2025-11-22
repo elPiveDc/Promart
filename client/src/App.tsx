@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ProjectIntentPage from './pages/ProjectIntentPage';
 import ProjectConfigPage from './pages/ProjectConfigPage';
+import BackendTestPage from './pages/BackendTestPages';
 
 const App: React.FC = () => {
   return (
@@ -18,7 +19,8 @@ const App: React.FC = () => {
           {/* RUTA DE CONFIGURACIÓN/RESULTADOS: El módulo de inteligencia */}
           <Route path="/project/:slug" element={<ProjectConfigPage />} />
 
-          {/* OTRAS RUTAS (Se pueden eliminar si no se usan): */}
+          {<Route path="/test-backend" element={<BackendTestPage />} />
+}
           {/* <Route path="/results" element={<div>Página de Resultados</div>} /> */}
         </Routes>
       </div>
