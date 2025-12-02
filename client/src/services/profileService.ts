@@ -1,6 +1,6 @@
 import { api } from "../api/api";
 import type { ProductResponseDTO } from "../types/Product";
-import type { ProfileResponseDTO } from "../types/profile";
+import type { ProfileResponseDTO } from "../types/Profile";
 
 // Buscar perfil por slug
 export async function getProfileBySlug(

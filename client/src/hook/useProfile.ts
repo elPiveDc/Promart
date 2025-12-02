@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { getProfileBySlug, getBaseProducts } from "../services/profileService";
+import { getProfileBySlug } from "../services/profileService";
 import type { ProductResponseDTO } from "../types/Product";
-import type { ProfileResponseDTO } from "../types/profile";
+import type { ProfileResponseDTO } from "../types/Profile";
 
 export function useProfile() {
   const [profile, setProfile] = useState<ProfileResponseDTO | null>(null);
@@ -10,14 +10,14 @@ export function useProfile() {
   const [error, setError] = useState<string | null>(null);
 
   async function searchProfile(slug: string) {
+    //logica que embasae a palabras clave lo relacione con los slung predeterminados:
+
     setLoading(true);
     setError(null);
     try {
       const p = await getProfileBySlug(slug);
       setProfile(p);
-
-      const base = await getBaseProducts(p.baseProducts);
-      setProducts(base);
+      setProducts(p.baseProducts);
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);
