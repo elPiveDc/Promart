@@ -1,73 +1,35 @@
-# React + TypeScript + Vite
+# Frontend (client) - Interfaz de Asistente
+Este módulo es una aplicación React (Vite) en TypeScript que provee la interfaz para la interacción con el Asistente de Proyectos. Su función principal es guiar al usuario a través del flujo de detección de intención, configuración de filtros y visualización de la lista de productos generada por el backend.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Configuración y Dependencias
 
-Currently, two official plugins are available:
+| Dependencias | Propósito |
+| :--- | :--- |
+| `react-router-dom` | Manejo de las rutas de la aplicación (SPA). |
+| `Código en línea` | Cliente HTTP para interactuar con la API del Backend. |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Scripts Principales
 
-## React Compiler
+| Comando | Descripción |
+| :--- | :--- |
+| `npm install` | Instala todas las dependencias del frontend. |
+| `npm run dev` | Inicia el servidor de desarrollo de Vite (generalmente en http://localhost:5173). |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 2. Flujo de Navegación y Componentes Clave
+El frontend está diseñado como un flujo lineal enfocado en la lógica inteligente.
 
-## Expanding the ESLint configuration
+| Ruta | Componente | Descripción de la Interacción |
+| :--- | :--- | :--- |
+| `/` | ProjectIntentPage.tsx| Punto de Partida. El usuario ingresa una descripción libre (ej: "remodelar mi baño"). Simula la detección de palabras clave y redirige. |
+| `/project/:slug` | ProjectConfigPage.tsx | Módulo Central. Carga el perfil, muestra los filtros (optionalFilters), y realiza la llamada final a la API para generar la lista recomendada. |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 3. Flujo de Navegación y Componentes Clave
+La comunicación se gestiona a través de los servicios y está definida por los tipos de datos que esperamos.
+###Archivos de Conexión
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- src/utils/api.ts: Define la base de la URL del backend.
+- src/types/product.ts: Define las interfaces clave (Product, CartItem, SmartListResponse).
+- src/services/profileService.ts: Contiene la lógica de la capa de servicio para la API.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
