@@ -36,5 +36,5 @@ export const productController = {
 
     await productService.remove(id);
     res.status(204).send();
-  }
+  },
 };

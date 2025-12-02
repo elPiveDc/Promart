@@ -1,6 +1,6 @@
 import "dotenv/config";
 import app from "./app";
-import  connectDB  from "./config/database";
+import connectDB from "./config/database";
 // import { seed } from "./utils/seed"; Para PRECARGARDATOS
 
 const PORT = process.env.PORT || 4000;

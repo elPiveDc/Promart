@@ -16,5 +16,5 @@ export const productService = {
   },
   async remove(id: string) {
     return Product.findByIdAndDelete(id).exec();
-  }
+  },
 };

@@ -13,5 +13,5 @@ export const profileService = {
   async create(payload: any) {
     const p = new Profile(payload);
     return p.save();
-  }
+  },
 };
