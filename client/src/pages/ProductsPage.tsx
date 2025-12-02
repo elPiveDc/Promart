@@ -1,3 +1,4 @@
+import Header from "../components/header";
 import ProductList from "../components/ProductList";
 import { useProducts } from "../hook/useProduct";
 
@@ -9,6 +10,7 @@ export default function ProductsPage() {
 
   return (
     <div>
+      <Header />
       <h1>Productos</h1>
       <ProductList products={products} />
     </div>
