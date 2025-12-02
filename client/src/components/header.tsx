@@ -3,21 +3,26 @@ import { useNavigate } from "react-router-dom";
 export default function Header() {
   const navigate = useNavigate();
 
-  const handleGoToProjects = () => {
-    navigate("/projects/create");
-  };
-
-  const handleGoToCart = () => {
-    // Simulación: por ahora solo mostramos un alert
-    alert("Ir al carrito (simulado)");
-  };
-
   return (
-    <header className="header">
-      <h1>Mi Tienda</h1>
-      <div className="header-actions">
-        <button onClick={handleGoToProjects}>Ir a creación de proyectos</button>
-        <button onClick={handleGoToCart}>Ir al carrito</button>
+    <header className="promart-header shadow-sm">
+      <div className="container d-flex align-items-center justify-content-between">
+        <div className="d-flex align-items-center gap-2">
+          <img
+            src="https://skeleton.pe/wp-content/uploads/2022/10/logo-promart.svg"
+            alt="Promart"
+            height={32}
+          />
+          <span className="fw-bold text-white fs-5">Homecenter</span>
+        </div>
+
+        <div className="d-flex gap-2">
+          <button
+            className="btn btn-warning btn-sm fw-semibold"
+            onClick={() => navigate("/cart")}
+          >
+            🛒 Carrito
+          </button>
+        </div>
       </div>
     </header>
   );

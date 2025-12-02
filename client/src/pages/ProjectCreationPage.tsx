@@ -9,7 +9,7 @@ export default function ProjectCreationPage() {
   const handleSearch = () => {
     const slug = input.toLowerCase().includes("cocina")
       ? "remodelar-cocina"
-      : "remodelar-bano";
+      : "remodelar-baño";
 
     searchProfile(slug);
   };

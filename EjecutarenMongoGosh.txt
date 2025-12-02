@@ -1,26 +1,26 @@
 use promart;
 
 const products = db.products.insertMany([
-  { name: "Pintura Blanca 1L", category: "pintura", price: 25, color: "blanco", tags: ["pintura", "pared"] },
-  { name: "Pintura Látex Premium 4L", category: "pintura", price: 89, color: "marfil", tags: ["pintura"] },
-  { name: "Rodillo Profesional", category: "herramientas", price: 18, tags: ["pintura", "herramientas"] },
-  { name: "Brocha Angular 2\"", category: "herramientas", price: 9, tags: ["pintura"] },
-  { name: "Cemento 42.5kg", category: "piso", price: 32, tags: ["piso", "material"] },
-  { name: "Cerámico Beige 60x60", category: "piso", price: 12, dimensions: "60x60", tags: ["piso"] },
-  { name: "Fragua Blanca 1kg", category: "piso", price: 7, tags: ["piso"] },
-  { name: "Taladro Percutor 700W", category: "herramientas", price: 249, tags: ["herramientas", "eléctrico"] },
-  { name: "Cinta Métrica 5m", category: "herramientas", price: 15, tags: ["medición", "herramientas"] },
-  { name: "Tornillos Madera 100u", category: "ferretería", price: 8, tags: ["madera"] },
-  { name: "Lija Grano 120", category: "herramientas", price: 3, tags: ["acabado"] },
-  { name: "Perfil Drywall 3m", category: "drywall", price: 21, tags: ["drywall"] },
-  { name: "Placa Drywall 1.22x2.44", category: "drywall", price: 48, tags: ["drywall"] },
-  { name: "Silicona Transparente", category: "pegamentos", price: 12, tags: ["sellado"] },
-  { name: "Piso Laminado Roble", category: "piso", price: 56, tags: ["piso"] },
-  { name: "Enchape Madera Oscura", category: "acabados", price: 38, tags: ["madera"] },
-  { name: "Masilla para Juntas 1kg", category: "drywall", price: 14, tags: ["drywall"] },
-  { name: "Pintura Antihumedad 1L", category: "pintura", price: 32, tags: ["pared", "humedad"] },
-  { name: "Guantes de Seguridad", category: "seguridad", price: 11, tags: ["seguridad"] },
-  { name: "Casco de Construcción", category: "seguridad", price: 35, tags: ["seguridad"] }
+  { name: "Pintura Blanca 1L", category: "pintura", price: 25, color: "blanco", tags: ["pintura", "pared"], stock: 10000, url: "https://images.unsplash.com/photo-1673297821205-e0575bbc2ab7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Pintura Látex Premium 4L", category: "pintura", price: 89, color: "marfil", tags: ["pintura"], stock: 10000, url: "https://images.unsplash.com/photo-1675741954819-18ceaf53eb9c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Rodillo Profesional", category: "herramientas", price: 18, tags: ["pintura", "herramientas"], stock: 10000, url: "https://images.unsplash.com/photo-1516962080544-eac695c93791?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Brocha Angular 2\"", category: "herramientas", price: 9, tags: ["pintura"], stock: 10000, url: "https://plus.unsplash.com/premium_vector-1752683379442-10fa9ddda2d7?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { name: "Cemento 25kg", category: "piso", price: 32, tags: ["piso", "material"], stock: 10000, url: "https://www.shutterstock.com/image-illustration/cement-sack-paper-bag-3d-600nw-2020801100.jpg" },
+  { name: "Cerámico Beige 60x60", category: "piso", price: 12, dimensions: "60x60", tags: ["piso"], stock: 10000, url: "https://granoutletgrifine.com/wp-content/uploads/2024/01/CSL125-CER.-CSL.-PISO-LUMIERE-BEIGE-60X60-1.48m2-4U-1.jpg" },
+  { name: "Fragua Blanca 1kg", category: "piso", price: 7, tags: ["piso"], stock: 10000, url: "https://hipermercadoceramico.com/wp-content/uploads/2020/12/63573-600x444.jpg" },
+  { name: "Taladro Percutor 700W", category: "herramientas", price: 249, tags: ["herramientas", "eléctrico"], stock: 10000, url: "https://promart.vteximg.com.br/arquivos/ids/6860514-700-700/24063.jpg?v=638145924271000000" },
+  { name: "Cinta Métrica 5m", category: "herramientas", price: 15, tags: ["medición", "herramientas"], stock: 10000, url: "https://media.falabella.com/sodimacPE/4206207_01/w=800,h=800,fit=pad" },
+  { name: "Tornillos Madera 100u", category: "ferretería", price: 8, tags: ["madera"], stock: 10000, url: "https://promart.vteximg.com.br/arquivos/ids/7900071/156169.jpg?v=638465382622900000" },
+  { name: "Lija Grano 120", category: "herramientas", price: 3, tags: ["acabado"], stock: 10000, url: "https://promart.vteximg.com.br/arquivos/ids/748633/15132.jpg?v=637490048970570000" },
+  { name: "Perfil Drywall 3m", category: "drywall", price: 21, tags: ["drywall"], stock: 10000, url: "https://www.construmart.pe/cdn/shop/files/Producto-ParanteTitan.png?v=1736963547" },
+  { name: "Placa Drywall 1.22x2.44", category: "drywall", price: 48, tags: ["drywall"], stock: 10000, url: "https://promart.vteximg.com.br/arquivos/ids/8550068-700-700/30103.jpg?v=638727513745030000" },
+  { name: "Silicona Transparente", category: "pegamentos", price: 12, tags: ["sellado"], stock: 10000, url: "https://promart.vteximg.com.br/arquivos/ids/8118226-700-700/17877.jpg?v=638610999677900000" },
+  { name: "Piso Laminado Roble", category: "piso", price: 56, tags: ["piso"], stock: 10000, url: "https://promart.vteximg.com.br/arquivos/ids/8620896-700-700/139355.jpg?v=638762157107800000" },
+  { name: "Enchape Madera Oscura", category: "acabados", price: 38, tags: ["madera"], stock: 10000, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj3jxKA8WWmVC7KqECLsNRPzQmad1dEP4J8g&s" },
+  { name: "Masilla para Juntas 1kg", category: "drywall", price: 14, tags: ["drywall"], stock: 10000, url: "https://media.falabella.com/sodimacPE/1854887_01/w=800,h=800,fit=pad" },
+  { name: "Pintura Antihumedad 1L", category: "pintura", price: 32, tags: ["pared", "humedad"], stock: 10000, url: "https://cdnx.jumpseller.com/servi-plast1/image/35008198/resize/1200/1200?1683637145"},
+  { name: "Guantes de Seguridad", category: "seguridad", price: 11, tags: ["seguridad"], stock: 10000, url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrjPM_z-PmmmbJAZcNfKscyTdffgxxy8voTQ&s" },
+  { name: "Casco de Construcción", category: "seguridad", price: 35, tags: ["seguridad"], stock: 10000, url: "https://promart.vteximg.com.br/arquivos/ids/3206850-700-700/49281.jpg?v=637739978918730000" }
 ]);
 
 print("Productos insertados:");
@@ -49,7 +49,7 @@ db.profiles.insertMany([
     version: "1.0"
   },
   {
-    slug: "remodelar-bano",
+    slug: "remodelar-baño",
     name: "Remodelación de Baño",
     description: "Materiales esenciales para renovar un baño mediano.",
     tags: ["baño", "remodelacion"],

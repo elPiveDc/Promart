@@ -3,6 +3,7 @@ export interface ProductRequestDTO {
   category: string;
   price: number;
   color?: string;
+  url?: string;
   dimensions?: string;
   stock?: number;
   tags?: string[];
@@ -14,6 +15,7 @@ export interface ProductResponseDTO {
   category: string;
   price: number;
   color?: string;
+  url?: string;
   dimensions?: string;
   stock?: number;
   tags?: string[];
