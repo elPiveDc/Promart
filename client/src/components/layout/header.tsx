@@ -7,12 +7,8 @@ export default function Header() {
     <header className="promart-header shadow-sm">
       <div className="container d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center gap-2">
-          <img
-            src="https://skeleton.pe/wp-content/uploads/2022/10/logo-promart.svg"
-            alt="Promart"
-            height={32}
-          />
-          <span className="fw-bold text-white fs-5">Homecenter</span>
+          <img src="../../../public/img/icon.png" alt="Promart" height={32} />
+          <span className="fw-bold fs-5">PROMART</span>
         </div>
 
         <div className="d-flex gap-2">

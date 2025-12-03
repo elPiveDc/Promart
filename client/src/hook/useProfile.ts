@@ -3,31 +3,81 @@ import { getProfileBySlug } from "../services/profileService";
 import type { ProductResponseDTO } from "../types/Product";
 import type { ProfileResponseDTO } from "../types/Profile";
 
+// Simulación de perfiles con sus tags (esto normalmente vendría de la BD)
+const PROFILES = [
+  { slug: "remodelar-cocina", tags: ["cocina", "remodelacion"] },
+  { slug: "remodelar-baño", tags: ["baño", "remodelacion"] },
+  { slug: "pintar-depa", tags: ["pintura", "depa"] },
+  { slug: "instalar-drywall", tags: ["drywall"] },
+  { slug: "seguridad-obra", tags: ["seguridad"] },
+  { slug: "acabado-madera", tags: ["madera", "acabados"] },
+  { slug: "renovar-pisos", tags: ["piso"] },
+  { slug: "pintar-habitacion", tags: ["pintura", "habitacion"] },
+  { slug: "kit-herramientas-basico", tags: ["herramientas"] },
+  { slug: "impermeabilizacion", tags: ["humedad"] },
+];
+
 export function useProfile() {
-  const [profile, setProfile] = useState<ProfileResponseDTO | null>(null);
-  const [products, setProducts] = useState<ProductResponseDTO[]>([]);
+  const [profiles, setProfiles] = useState<ProfileResponseDTO[]>([]);
+  const [productsByProfile, setProductsByProfile] = useState<
+    Record<string, ProductResponseDTO[]>
+  >({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Buscar directamente por slug
   async function searchProfile(slug: string) {
-    //logica que embasae a palabras clave lo relacione con los slung predeterminados:
-
     setLoading(true);
     setError(null);
     try {
       const p = await getProfileBySlug(slug);
-      setProfile(p);
-      setProducts(p.baseProducts);
+      setProfiles([p]);
+      setProductsByProfile({ [slug]: p.baseProducts });
     } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("Error desconocido");
-      }
+      setError(err instanceof Error ? err.message : "Error desconocido");
     } finally {
       setLoading(false);
     }
   }
 
-  return { profile, products, loading, error, searchProfile };
+  // Buscar a partir de texto libre
+  async function searchFromText(text: string) {
+    setLoading(true);
+    setError(null);
+    setProfiles([]);
+    setProductsByProfile({});
+
+    try {
+      const words = text.toLowerCase().split(/\s+/);
+
+      const matchedSlugs = PROFILES.filter((p) =>
+        p.tags.some((tag) => words.includes(tag))
+      ).map((p) => p.slug);
+
+      const foundProfiles: ProfileResponseDTO[] = [];
+      const foundProducts: Record<string, ProductResponseDTO[]> = {};
+
+      for (const slug of matchedSlugs) {
+        const p = await getProfileBySlug(slug);
+        foundProfiles.push(p);
+        foundProducts[slug] = p.baseProducts;
+      }
+
+      setProfiles(foundProfiles);
+      setProductsByProfile(foundProducts);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Error desconocido");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return {
+    profiles,
+    productsByProfile,
+    loading,
+    error,
+    searchProfile,
+    searchFromText,
+  };
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useCart } from "../../../hook/useCart";
-import type { ProductResponseDTO } from "../../../types/Product";
+import type { ProductResponseDTO } from "../../../../types/Product";
+import { useCart } from "../../../../hook/useCart";
 
 interface ProductCardProps {
   product: ProductResponseDTO;
