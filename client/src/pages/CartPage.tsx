@@ -30,7 +30,7 @@ export default function CartPage() {
               </button>
               <button
                 className="btn btn-light btn-sm fw-semibold"
-                onClick={() => navigate("/cart/projects/create")}
+                onClick={() => navigate("/cart/projects/")}
               >
                 Crear proyecto
               </button>

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import ProductList from "../components/product/ProductList";
-import { useProfile } from "../hook/useProfile";
-
+import { useProfile } from "../../../hook/useProfile";
+import ProductList from "./product/ProductList";
 export default function ProjectCreationPage() {
   const [input, setInput] = useState("");
   const { profile, products, loading, error, searchProfile } = useProfile();
