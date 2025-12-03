@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProductsPage from "../pages/ProductsPage";
-import ProjectCreationPage from "../pages/ProjectCreationPage";
+import ProductsPage from "../pages/HomePage";
 import CartPage from "../pages/CartPage";
+import ProjectCreationPage from "../components/cart/project/ProjectForm";
 
 export default function AppRoutes() {
   return (

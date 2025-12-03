@@ -1,5 +1,5 @@
-import Header from "../components/header";
-import ProductList from "../components/ProductList";
+import Header from "../components/layout/header";
+import ProductList from "../components/cart/product/ProductList";
 import { useProducts } from "../hook/useProduct";
 
 export default function ProductsPage() {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ProductList from "../components/ProductList";
+import ProductList from "../components/product/ProductList";
 import { useProfile } from "../hook/useProfile";
 
 export default function ProjectCreationPage() {

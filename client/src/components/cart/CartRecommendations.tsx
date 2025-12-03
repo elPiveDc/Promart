@@ -1,5 +1,5 @@
 import { useProducts } from "../hook/useProduct";
-import ProductList from "../components/ProductList";
+import ProductList from "../components/product/ProductList";
 
 export default function CartRecommendations() {
   const { products, loading, error } = useProducts();

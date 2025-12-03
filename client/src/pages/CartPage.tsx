@@ -1,6 +1,5 @@
-import Header from "../components/header";
-import { useCart } from "../hook/useCart";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../hook/useCart";
 
 export default function CartPage() {
   const { cart } = useCart();
@@ -10,8 +9,6 @@ export default function CartPage() {
 
   return (
     <>
-      <Header />
-
       <main className="container py-5">
         <div className="bg-white rounded shadow-sm p-5 text-center">
           {isEmpty ? (
