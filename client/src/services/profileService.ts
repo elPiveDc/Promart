@@ -2,7 +2,6 @@ import { api } from "../api/api";
 import type { ProductResponseDTO } from "../types/Product";
 import type { ProfileResponseDTO } from "../types/Profile";
 
-// Buscar perfil por slug
 export async function getProfileBySlug(
   slug: string
 ): Promise<ProfileResponseDTO> {
@@ -10,7 +9,6 @@ export async function getProfileBySlug(
   return res.data;
 }
 
-// Buscar productos base de un perfil
 export async function getBaseProducts(
   ids: string[]
 ): Promise<ProductResponseDTO[]> {

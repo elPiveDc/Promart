@@ -13,6 +13,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
   const [imageSrc, setImageSrc] = useState(product.url || FALLBACK_IMAGE);
 
+  const handleAdd = async () => {
+    await addToCart(product);
+  };
+
   return (
     <div className="card h-100 border-0 shadow-sm product-card">
       <img
@@ -49,7 +53,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <button
           className="btn btn-warning fw-semibold mt-auto"
           disabled={product.stock === 0}
-          onClick={() => addToCart(product)}
+          onClick={handleAdd}
         >
           Agregar al carrito
         </button>

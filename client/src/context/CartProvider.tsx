@@ -8,14 +8,15 @@ interface CartProviderProps {
   children: ReactNode;
 }
 
-export function CartProvider({ children }: CartProviderProps) {
-  const [cart, setCart] = useState<CartResponseDTO | null>(null);
+const emptyCart: CartResponseDTO = {
+  _id: "",
+  items: [],
+  createdAt: "",
+  updatedAt: "",
+};
 
-  const createNewCart = async () => {
-    const newCart = await CartService.createCart();
-    setCart(newCart);
-    localStorage.setItem("cartId", newCart._id);
-  };
+export function CartProvider({ children }: CartProviderProps) {
+  const [cart, setCart] = useState<CartResponseDTO>(emptyCart);
 
   useEffect(() => {
     const init = async () => {
@@ -31,39 +32,47 @@ export function CartProvider({ children }: CartProviderProps) {
         }
       }
 
-      await createNewCart();
+      const newCart = await CartService.createCart();
+      setCart(newCart);
+      localStorage.setItem("cartId", newCart._id);
     };
 
     void init();
   }, []);
 
   const addToCart = async (product: ProductResponseDTO) => {
-    if (!cart?._id) return;
-    const updated = await CartService.addItem(cart._id, product._id);
+    let cartId = cart._id;
+
+    if (!cartId) {
+      const newCart = await CartService.createCart();
+      setCart(newCart);
+      localStorage.setItem("cartId", newCart._id);
+      cartId = newCart._id;
+    }
+    if (!cart?._id) {
+      console.warn("INTENTO DE AGREGAR SIN CARRITO AÚN");
+      return;
+    }
+
+    const updated = await CartService.addItem(cartId, product._id);
+    console.log("MISMA REFERENCIA?", updated === cart);
     setCart(updated);
   };
 
   const updateItem = async (productId: string, quantity: number) => {
-    if (!cart?._id) return;
+    if (!cart._id) return;
     const updated = await CartService.updateItem(cart._id, productId, quantity);
     setCart(updated);
   };
 
   const removeItem = async (productId: string) => {
-    if (!cart?._id) return;
+    if (!cart._id) return;
     const updated = await CartService.removeItem(cart._id, productId);
     setCart(updated);
   };
 
   return (
-    <CartContext.Provider
-      value={{
-        cart,
-        addToCart,
-        updateItem,
-        removeItem,
-      }}
-    >
+    <CartContext.Provider value={{ cart, addToCart, updateItem, removeItem }}>
       {children}
     </CartContext.Provider>
   );

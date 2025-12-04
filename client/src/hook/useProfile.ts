@@ -24,7 +24,6 @@ export function useProfile() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Buscar directamente por slug
   async function searchProfile(slug: string) {
     setLoading(true);
     setError(null);

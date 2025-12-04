@@ -12,28 +12,37 @@ export default function CartProjectForm() {
   };
 
   return (
-    <div className="container my-5">
-      <h2 className="fw-bold mb-4">Creación de Proyecto</h2>
-      <textarea
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Ejemplo: Quiero remodelar mi cocina y pintar el depa..."
-        className="form-control mb-3"
-        rows={3}
-      />
-      <button onClick={handleSearch} className="btn btn-primary fw-semibold">
-        Buscar perfiles
-      </button>
+    <div className="container-fluid my-5">
+      <div className="row">
+        <div className="col-md-7">
+          <h2 className="fw-bold mb-4">Creación de Proyecto</h2>
 
-      {loading && <p>Buscando perfiles...</p>}
-      {error && <p className="text-danger">Error: {error}</p>}
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Ejemplo: Quiero remodelar mi cocina..."
+            className="form-control mb-3"
+            rows={3}
+          />
 
-      {profiles.map((profile) => (
-        <div key={profile.slug} className="mt-4">
-          <h4>{profile.name}</h4>
-          <ProductList products={productsByProfile[profile.slug] || []} />
+          <button
+            onClick={handleSearch}
+            className="btn btn-primary fw-semibold mb-3"
+          >
+            Buscar perfiles
+          </button>
+
+          {loading && <p>Buscando perfiles...</p>}
+          {error && <p className="text-danger">Error: {error}</p>}
+
+          {profiles.map((profile) => (
+            <div key={profile.slug} className="mt-4">
+              <h4>{profile.name}</h4>
+              <ProductList products={productsByProfile[profile.slug] || []} />
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export default function ProductList({ products }: ProductListProps) {
   return (
     <div className="row g-3">
       {products.map((product) => (
-        <div key={product._id}>
+        <div key={product._id} className="col-md-6 col-lg-4">
           <ProductCard product={product} />
         </div>
       ))}
