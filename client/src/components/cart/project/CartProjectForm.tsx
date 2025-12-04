@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useProfile } from "../../../hook/useProfile";
+import { useCart } from "../../../hook/useCart"; // IMPORTANTE
 import ProductList from "./product/ProductList";
+import CartView from "./CartView";
 
 export default function CartProjectForm() {
   const [input, setInput] = useState("");
   const { profiles, productsByProfile, loading, error, searchFromText } =
     useProfile();
+
+  useCart();
 
   const handleSearch = () => {
     searchFromText(input);
@@ -41,6 +45,10 @@ export default function CartProjectForm() {
               <ProductList products={productsByProfile[profile.slug] || []} />
             </div>
           ))}
+        </div>
+
+        <div className="col-md-5">
+          <CartView />
         </div>
       </div>
     </div>
