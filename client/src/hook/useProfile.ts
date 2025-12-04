@@ -3,7 +3,6 @@ import { getProfileBySlug } from "../services/profileService";
 import type { ProductResponseDTO } from "../types/Product";
 import type { ProfileResponseDTO } from "../types/Profile";
 
-// Simulación de perfiles con sus tags (esto normalmente vendría de la BD)
 const PROFILES = [
   { slug: "remodelar-cocina", tags: ["cocina", "remodelacion"] },
   { slug: "remodelar-baño", tags: ["baño", "remodelacion"] },
@@ -40,7 +39,6 @@ export function useProfile() {
     }
   }
 
-  // Buscar a partir de texto libre
   async function searchFromText(text: string) {
     setLoading(true);
     setError(null);

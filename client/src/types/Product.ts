@@ -1,4 +1,5 @@
 export interface ProductRequestDTO {
+  _id: string;
   name: string;
   category: string;
   price: number;
@@ -10,7 +11,7 @@ export interface ProductRequestDTO {
 }
 
 export interface ProductResponseDTO {
-  id: string;
+  _id: string;
   name: string;
   category: string;
   price: number;
